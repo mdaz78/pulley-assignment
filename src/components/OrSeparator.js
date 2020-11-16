@@ -4,9 +4,11 @@ import { Separator } from './styled';
 
 const Container = styled.section`
   display: grid;
-  grid-template-columns: 12.6% 3.5% 83.9%;
+  grid-template-columns: 12.6% 3.5% 1fr;
   align-items: center;
   gap: 0.5rem;
+  margin-top: 2.6rem;
+  margin-bottom: 2.6rem;
 `;
 
 const StyledP = styled.p`

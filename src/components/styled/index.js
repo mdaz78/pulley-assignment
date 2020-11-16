@@ -29,10 +29,24 @@ const Separator = styled.div`
   margin-top: 1.3rem;
   margin-bottom: 1.3rem;
 `;
+
+const Card = styled.div`
+  width: 100%;
+  height: 9.1rem;
+  background-color: rgba(83, 181, 141, 0.05);
+  border: 1.5px solid rgba(83, 181, 141, 0.8);
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  align-items: center;
+`;
+
 export {
   PrimaryHeading,
   SecondaryHeading,
   DescriptionText,
   Wrapper,
   Separator,
+  Card,
 };

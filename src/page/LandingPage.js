@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import OnboardingUpload from '../components/OnboardingUpload';
 import OrSeparator from '../components/OrSeparator';
-import { Wrapper, Separator } from '../components/styled';
+import { Wrapper } from '../components/styled';
 import ExcelIcon from '../assets/excel.png';
 import PaperIcon from '../assets/paper.png';
 
@@ -26,6 +26,7 @@ export default function LandingPage() {
             icon={ExcelIcon}
             heading='Upload Spreadsheet'
             description='Download a cap table spreadsheet template, fill it out, upload the completed template.'
+            tabIndex='0'
           />
         </StyledLink>
         <OrSeparator />
@@ -34,6 +35,7 @@ export default function LandingPage() {
             icon={PaperIcon}
             heading='Upload Investment Documents'
             description='Download a cap table spreadsheet template, fill it out, upload the completed template.'
+            tabIndex='0'
           />
         </StyledLink>
       </Wrapper>

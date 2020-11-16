@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const PrimaryHeading = styled.h1`
@@ -40,6 +41,15 @@ const Card = styled.div`
   display: grid;
   grid-template-columns: 1fr 7fr;
   align-items: center;
+
+  &:hover {
+    border: 1.5px solid #32732d;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #000;
 `;
 
 export {
@@ -49,4 +59,5 @@ export {
   Wrapper,
   Separator,
   Card,
+  StyledLink,
 };

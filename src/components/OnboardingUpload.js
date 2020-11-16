@@ -2,11 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Card, SecondaryHeading, DescriptionText } from './styled';
 
+const StyledImage = styled.img`
+  justify-self: center;
+`;
 export default function OnboardingUpload({ icon, heading, description }) {
-  const StyledImage = styled.img`
-    justify-self: center;
-  `;
-
   return (
     <Card>
       <StyledImage src={icon} alt='Upload type Spreadsheet' />

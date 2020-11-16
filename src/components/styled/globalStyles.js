@@ -134,7 +134,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    margin: 6.1rem;
+    margin: 0 10%;
     margin-top: 3.5rem;
   }
 

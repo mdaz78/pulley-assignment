@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import styled from 'styled-components';
 import BackButton from '../components/BackButton';
-import Checkbox from '../components/Checkbox';
 import {
   DescriptionText,
   SecondaryHeading,
@@ -19,12 +18,7 @@ const CustomSeparator = styled(Separator)`
 `;
 
 const Input = styled.input.attrs({ type: 'checkbox' })`
-  width: 4rem;
-  height: 4rem;
-  background-color: white;
-  border-radius: 50%;
-  vertical-align: middle;
-  border: 1px solid #ddd;
+  display: none;
 `;
 
 const Label = styled.label`
@@ -32,6 +26,7 @@ const Label = styled.label`
   grid-template-columns: 1fr, 1fr;
   align-items: center;
   padding: 1.4rem 0;
+  user-select: none;
 
   &:hover {
     background-color: rgba(83, 181, 141, 0.05);
@@ -39,46 +34,88 @@ const Label = styled.label`
   }
 `;
 
+const Section = styled.section``;
+
+const Svg = styled.svg.attrs({ height: '3.5rem', width: '3.5rem' })`
+  ${Input}:checked + & {
+    border: 20px solid blue;
+  }
+`;
+
+const Circle = styled.circle.attrs({
+  cx: '22',
+  cy: '22',
+  r: '21px',
+  stroke: '#53B58D',
+  fill: '#fff',
+})`
+  stroke-width: 0.15rem;
+`;
+
+const Polyline = styled.polyline.attrs({
+  viewBox: '0 0 200 200',
+  points: '9 23 19 30 33 14',
+})`
+  fill: white;
+  stroke: #53b58d;
+  stroke-width: 0.25rem;
+`;
+
+const Checkbox = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 11fr;
+`;
+
 export default function DocumentTypePage() {
-  const data = [
+  const documentTypes = [
     {
       heading: 'Add Founder Series',
       description: 'Details on what founder shares are',
-      isChecked: false,
     },
     {
       heading: 'Add Investments',
       description: 'What are Investments, when you would have/add them',
-      isChecked: false,
     },
     {
       heading: 'Add Equity Plans',
       description: 'Equity plan description',
-      isChecked: false,
     },
     {
       heading: 'Add Employee Grants',
       description: 'Employee grant description',
-      isChecked: false,
     },
     {
       heading: 'Review Cap Table',
       description: 'All done? Invite your lawyer to review your cap table',
-      isChecked: false,
     },
   ];
 
-  const [documentTypes, setDocumentTypes] = useState(data);
+  const [isChecked, setIsChecked] = useState({});
+  const toggleCheckbox = (property, value) => {
+    setIsChecked({ ...isChecked, [property]: !value });
+  };
 
   const CheckBoxes = () =>
-    documentTypes.map(({ heading, description, isChecked }, index) => {
+    documentTypes.map(({ heading, description }, index) => {
       return (
         <>
           <Label key={index}>
-            <section>
-              <SecondaryHeading>{heading}</SecondaryHeading>
-              <DescriptionText>{description}</DescriptionText>
-            </section>
+            <Input
+              checked={isChecked[heading] || false}
+              onChange={(e) => {
+                toggleCheckbox(heading, isChecked[heading]);
+              }}
+            />
+            <Checkbox>
+              <Svg>
+                <Circle />
+                <Polyline />
+              </Svg>
+              <Section>
+                <SecondaryHeading>{heading}</SecondaryHeading>
+                <DescriptionText>{description}</DescriptionText>
+              </Section>
+            </Checkbox>
           </Label>
           <CustomSeparator />
         </>

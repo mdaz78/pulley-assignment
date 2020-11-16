@@ -4,14 +4,9 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import OnboardingUpload from '../components/OnboardingUpload';
 import OrSeparator from '../components/OrSeparator';
-import { Wrapper } from '../components/styled';
+import { Wrapper, StyledLink } from '../components/styled';
 import ExcelIcon from '../assets/excel.png';
 import PaperIcon from '../assets/paper.png';
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: #000;
-`;
 
 export default function LandingPage() {
   return (

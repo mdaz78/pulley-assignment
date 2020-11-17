@@ -37,6 +37,7 @@ const Label = styled.label`
 const Section = styled.section``;
 
 const Svg = styled.svg.attrs({ height: '3.5rem', width: '3.5rem' })`
+  justify-self: center;
   ${Input}:checked + & {
     border: 20px solid blue;
   }

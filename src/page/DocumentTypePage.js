@@ -22,9 +22,7 @@ const Input = styled.input.attrs({ type: 'checkbox' })`
 `;
 
 const Label = styled.label`
-  display: grid;
-  grid-template-columns: 1fr, 1fr;
-  align-items: center;
+  display: block;
   padding: 1.4rem 0;
   user-select: none;
 
@@ -36,8 +34,13 @@ const Label = styled.label`
 
 const Section = styled.section``;
 
-const Svg = styled.svg.attrs({ height: '3.5rem', width: '3.5rem' })`
+const Svg = styled.svg.attrs()`
+  height: 3.5rem;
+  width: 3.5rem;
+  min-height: 49px;
+  min-width: 49px;
   justify-self: center;
+  align-self: center;
   ${Input}:checked + & {
     border: 20px solid blue;
   }
@@ -66,6 +69,7 @@ const Polyline = styled.polyline.attrs({
 const Checkbox = styled.section`
   display: grid;
   grid-template-columns: 1fr 11fr;
+  align-items: center;
 `;
 
 export default function DocumentTypePage() {

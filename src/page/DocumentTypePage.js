@@ -60,6 +60,7 @@ const Polyline = styled.polyline.attrs({
   fill: white;
   stroke: #53b58d;
   stroke-width: 0.25rem;
+  visibility: ${({ display }) => (display ? 'visible' : 'hidden')};
 `;
 
 const Checkbox = styled.section`
@@ -110,7 +111,7 @@ export default function DocumentTypePage() {
             <Checkbox>
               <Svg>
                 <Circle />
-                <Polyline />
+                <Polyline display={isChecked[heading]} />
               </Svg>
               <Section>
                 <SecondaryHeading>{heading}</SecondaryHeading>
